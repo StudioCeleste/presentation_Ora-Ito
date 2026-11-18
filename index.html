@@ -62,6 +62,9 @@ header.top{display:flex;flex-wrap:wrap;justify-content:space-between;align-items
 
 footer{border-top:1px solid var(--line);padding-top:22px;padding-bottom:36px;display:flex;flex-wrap:wrap;gap:8px 40px;justify-content:space-between;color:var(--mute);font-size:14px}
 footer a{color:var(--ink)}
+.contact{display:flex;flex-wrap:wrap;gap:4px 20px}
+.contact>*{white-space:nowrap}
+@media (max-width:700px){.contact{flex-direction:column;gap:4px}}
 
 /* Visionneuse */
 .viewer{position:fixed;inset:0;z-index:10;display:none;grid-template-columns:minmax(0,1fr) min(400px,34vw);background:var(--stage)}
@@ -126,7 +129,7 @@ footer a{color:var(--ink)}
 
 <footer class="wrap">
   <div>Studio Ora Ïto</div>
-  <div>Contact : Ora Ïto · <a href="mailto:ito@ora-ito.com">ito@ora-ito.com</a> · <a href="mailto:raphaelle@ora-ito.com">raphaelle@ora-ito.com</a> · 01 42 46 00 09</div>
+  <div class="contact"><span>Contact : Ora Ïto</span><a href="mailto:ito@ora-ito.com">ito@ora-ito.com</a><a href="mailto:raphaelle@ora-ito.com">raphaelle@ora-ito.com</a><span>01 42 46 00 09</span></div>
 </footer>
 
 <div class="viewer" id="viewer" role="dialog" aria-modal="true" aria-label="Projet">
