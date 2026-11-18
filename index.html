@@ -156,6 +156,7 @@ footer a{color:var(--ink)}
    Pour chaque photo : src = chemin de l'image (ex. "photos/mona/01.jpg"), r = format (largeur/hauteur),
    l = légende (vide = rien ne s'affiche). Tant que src est vide, un emplacement gris s'affiche. */
 const V = n => Array.from({length:n},(_,i)=>({r:i%2?"4/5":"3/2",l:""}));
+/* off:true = projet masqué temporairement (retirer off:true pour le réafficher) */
 const PROJETS = [
  {id:"mona", titre:"Mona", sous:"Hall Ora Ïto et Daniel Buren", cover:2, texte:"Un hall conçu avec Daniel Buren. Les bandes de marbre blanc et de marbre vert couvrent le mur courbe, descendent au sol et se prolongent jusque sur le parvis. Un bassin longe le mur ; la verrière y projette ses ombres au fil de la journée.", credit:"Photos We Are Contents",
   photos:[{src:"photos/mona/01.jpg",r:"3/2",l:"Le mur courbe, marbre blanc et marbre vert."},
@@ -200,9 +201,9 @@ const PROJETS = [
           {src:"photos/dupont/02.jpg",r:"3/4",l:"Cendrier vert, détail."},
           {src:"photos/dupont/04.jpg",r:"3/4",l:"Cendrier bleu, détail."},
           {src:"photos/dupont/07.jpg",r:"3/4",l:"L'ensemble : cendriers, briquet, coupe-cigare."}]},
- {id:"saint-paul-1", titre:"Maison I", sous:"Saint-Paul de Vence", photos:V(4)},
- {id:"saint-paul-2", titre:"Maison II", sous:"Saint-Paul de Vence", photos:V(4)},
- {id:"home-studio", titre:"Home studio", sous:"Ora Ïto", cover:1, wide:true, texte:"Un lieu pour vivre et travailler. Côté maison, un séjour en double hauteur, une mezzanine et un escalier suspendu. Côté studio, une longue table de travail le long d'un mur de rangements. Chêne, parquet en chevrons, murs blancs. Projet achevé.", credit:"Images de synthèse",
+ {id:"saint-paul-1", off:true, titre:"Maison I", sous:"Saint-Paul de Vence", photos:V(4)},
+ {id:"saint-paul-2", off:true, titre:"Maison II", sous:"Saint-Paul de Vence", photos:V(4)},
+ {id:"home-studio", titre:"Home studio", sous:"Ora Ïto", cover:1, texte:"Un lieu pour vivre et travailler. Côté maison, un séjour en double hauteur, une mezzanine et un escalier suspendu. Côté studio, une longue table de travail le long d'un mur de rangements. Chêne, parquet en chevrons, murs blancs. Projet achevé.", credit:"Images de synthèse",
   photos:[{src:"photos/home-studio/06.jpg",r:"1800/925",l:"L'escalier suspendu."},
           {src:"photos/home-studio/07.jpg",r:"1800/925",l:"Entre la maison et le studio."},
           {src:"photos/home-studio/08.jpg",r:"1800/925",l:"Le studio, la table de travail."},
@@ -212,7 +213,7 @@ const PROJETS = [
           {src:"photos/home-studio/03.jpg",r:"1800/900",l:"L'entrée."},
           {src:"photos/home-studio/04.jpg",r:"1365/900",l:"Le bureau sous l'escalier."},
           {src:"photos/home-studio/05.jpg",r:"1800/925",l:"Depuis l'entrée."}]},
-];
+].filter(p => !p.off);
 /* ─────────────────────────────────── */
 
 const $ = id => document.getElementById(id);
