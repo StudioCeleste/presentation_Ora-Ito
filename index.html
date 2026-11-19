@@ -260,6 +260,7 @@ function show(){
   $("vtxt").textContent = p.texte||""; $("vtxt").hidden = !p.texte;
   $("vcred").textContent = p.credit||""; $("vcred").hidden = !p.credit;
   $("vk").textContent = `${idx+1} / ${n}`;
+  $("prev").style.visibility = idx>0 ? "" : "hidden"; $("next").style.visibility = idx<n-1 ? "" : "hidden";
   $("vcap").textContent = ph.l||"";
   $("thumbs").replaceChildren(...p.photos.map((_,i)=>{const t=el("button",i===idx?"on":""); t.setAttribute("aria-label",`Photo ${i+1}`); t.append(media(p,i)); t.onclick=()=>{idx=i;show();}; return t;}));
   const a=PROJETS[(cur-1+PROJETS.length)%PROJETS.length], z=PROJETS[(cur+1)%PROJETS.length];
@@ -268,7 +269,7 @@ function show(){
 }
 function step(d){
   const n=PROJETS[cur].photos.length; idx+=d;
-  if(idx>=n){location.hash=PROJETS[(cur+1)%PROJETS.length].id;return;}
+  if(idx>=n) idx=n-1;
   if(idx<0) idx=0;
   show();
 }
